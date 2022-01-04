@@ -27,15 +27,15 @@
     <!-- NAVIGATION  -->
     <div>
       <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-          <div class="container" style="margin-left:-3.0em">
-            <img class="w-2/6"src="https://lintel-blogs-static-files.s3.amazonaws.com/wp-content/uploads/2019/08/23075844/1_A-D6cuz1WofJOR81z1yWJQ.png"  alt="">
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+          <div class="container" style="margin-left:1.0em">
+            <a  href="/"> <img class="w-2/6"src="https://lintel-blogs-static-files.s3.amazonaws.com/wp-content/uploads/2019/08/23075844/1_A-D6cuz1WofJOR81z1yWJQ.png" width="200" alt=""></a>
+            <button class="navbar-toggler" href="/" data-toggle="collapse" data-target="#navcol-1">
               <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
             </button>
               <div class="collapse navbar-collapse" id="navcol-1">
                   <ul class="nav navbar-nav mr-auto"></ul>
-                  <a class="btn btn-primary action-button" role="button" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></span>
-                   <a style="margin-left:1.0em" class="btn btn-primary action-button" role="button" href="/Index1"><i class="fa fa-registered" aria-hidden="true"></i> Registration</a></span>
+                  <a class="btn btn action-button" style="background-color:#5e86ff;color:black" role="button" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></span>
+                   <a style="margin-left:1.0em;background-color:#ffa45e;color:black" class="btn btn action-button" role="button"  href="/Index1"><i class="fa fa-registered" aria-hidden="true"></i> Registration</a></span>
                   </div>
           </div>
       </nav>
@@ -100,8 +100,8 @@
                     <td class="text-center">{{data.phone}}</td>
                     <td class="text-center">{{data.course}}</td>
                     <td width="130">
-                      <a href="/edit/{{data.id}}" class="btn btn-secondary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                      <a href="/delete/{{data.id}}" class="btn btn-danger btn-delete btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                      <a href="/edit/{{data.id}}" class="btn btn action-button" style="background-color:#96ff96;color:black"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                      <a href="/delete/{{data.id}}" class="btn btn action-button"  style="background-color:#fc9090;color:black"><i class="fa fa-trash" aria-hidden="true"></i></a>
                     </td>
                   </tr>
                   {% endfor %}
