@@ -3,7 +3,7 @@ version: '3'
 services:
   flaskapp:
     build: ./flask_registration
-    container_name: flaskapp
+    container_name: flaskapp1
     #ports:
     #  - "8000:8000"
     #network_mode: host
