@@ -13,7 +13,7 @@ services:
     image: nginx:latest
     container_name: nginx
     environment:
-      - SERVER_NAME=3.95.13.58
+      - SERVER_NAME=0.0.0.0
     ports:
       - "80:80"
     restart: always 
