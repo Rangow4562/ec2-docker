@@ -26,8 +26,8 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
       
-      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+      <script src="https://cdn.datatables.net/responsive/2.1.1/css/responsive.dataTables.css"></script>
+      <script src=" https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.js"></script>
     <!-- Copyright © 2014 Monotype Imaging Inc. All rights reserved -->
       <link rel="stylesheet" href="path/to/your/orangeHelvetica.css">
       <!-- Copyright © 2016 Orange SA. All rights reserved -->
@@ -397,7 +397,115 @@
               opacity: 0;
             }
           }
+         .button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 12.5rem;
+  magrin: 0;
+  padding: 1.5rem 3.125rem;
+  background-color: #3498db;
+  border: none;
+  border-radius: 0.3125rem;
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+  color: white;
+  font-weight: 300;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.button:before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #54d98c;
+}
+.button span {
+  position: absolute;
+  line-height: 0;
+}
+.button span i {
+  transform-origin: center center;
+}
+.button span:nth-of-type(1) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.button span:nth-of-type(2) {
+  top: 100%;
+  transform: translateY(0%);
+  font-size: 24px;
+}
+.button span:nth-of-type(3) {
+  display: none;
+}
 
+.active {
+  background-color: #2ecc71;
+}
+.active:before {
+  width: 100%;
+  transition: width 3s linear;
+}
+.active span:nth-of-type(1) {
+  top: -100%;
+  transform: translateY(-50%);
+}
+.active span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.active span:nth-of-type(2) i {
+  animation: loading 500ms linear infinite;
+}
+.active span:nth-of-type(3) {
+  display: none;
+}
+
+.finished {
+  background-color: #54d98c;
+}
+.finished .submit {
+  display: none;
+}
+.finished .loading {
+  display: none;
+}
+.finished .check {
+  display: block !important;
+  font-size: 24px;
+  animation: scale 0.5s linear;
+}
+.finished .check i {
+  transform-origin: center center;
+}
+
+@keyframes loading {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(10);
+  }
+  50% {
+    transform: scale(0.2);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  90% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
   
     </style>
 </head>
@@ -407,15 +515,15 @@
   
   <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-            <div class="container">
-              <img class="w-2/6"src="https://lintel-blogs-static-files.s3.amazonaws.com/wp-content/uploads/2019/08/23075844/1_A-D6cuz1WofJOR81z1yWJQ.png"  alt="">
+          <div class="container" style="margin-left:1.0em">
+            <a  href="/"> <img class="w-2/6"src="https://lintel-blogs-static-files.s3.amazonaws.com/wp-content/uploads/2019/08/23075844/1_A-D6cuz1WofJOR81z1yWJQ.png" width="200" alt=""></a>
               <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
                 <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
               </button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav mr-auto"></ul>
-                    <a class="btn btn-primary action-button" role="button" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></span>
-                     <a style="margin-left:1.0em" class="btn btn-primary action-button" role="button" href="/Index2"><i class="fa fa-table" aria-hidden="true"></i> Data Table</a></span>
+                    <a class="btn btn action-button" style="background-color:#5e86ff;color:black" role="button" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></span>
+                   <a style="margin-left:1.0em;background-color:#ffe880;color:black" class="btn btn action-button" role="button"  href="/Index2"><i class="fa fa-table" aria-hidden="true"></i> Data-Table</a></span>
                     </div>
             </div>
         </nav>
@@ -680,7 +788,7 @@
                
               <br>
               <div class="form-group col-lg-8 mx-auto mb-0">
-              <input style="margin-left:-7em"  type="submit" name="submit" value="Submit" class="btn btn-danger btn-block">
+              <input style="margin-left:-7em;background-color:#ff5e5e;color:white"  type="submit" name="submit" value="Submit" class="btn btn-block" >
               </div>
               
             </form>
