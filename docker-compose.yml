@@ -12,6 +12,6 @@ services:
     image: nginx:latest
     container_name: nginx
     environment:
-      - SERVER_NAME=0.0.0.0
+      - SERVER_NAME=3.89.125.94
     restart: always 
     network_mode: host
