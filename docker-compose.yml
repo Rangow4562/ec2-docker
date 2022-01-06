@@ -4,7 +4,7 @@ services:
   flaskapp:
     build: ./flask_registration
     ports:
-      - "8000:8000"
+      - "80:80"
     network_mode: host
 
   nginx:
@@ -12,6 +12,6 @@ services:
     image: nginx:latest
     container_name: nginx
     environment:
-      - SERVER_NAME=3.89.125.94
+      - SERVER_NAME=3.86.232.45
     restart: always 
     network_mode: host
