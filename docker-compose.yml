@@ -3,10 +3,9 @@ version: '3'
 services:
   flaskapp:
     build: ./flask_registration
-    container_name: flaskapp
-    #ports:
-    #  - "8000:8000"
-    #network_mode: host
+    ports:
+      - "8000:8000"
+    network_mode: host
 
   nginx:
     build: ./nginx
@@ -14,13 +13,5 @@ services:
     container_name: nginx
     environment:
       - SERVER_NAME=0.0.0.0
-    ports:
-      - "80:80"
     restart: always 
-    #network_mode: host
-    
-networks:
-  default:
-    driver: bridge
-    
-
+    network_mode: host
