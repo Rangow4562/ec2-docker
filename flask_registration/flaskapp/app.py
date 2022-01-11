@@ -38,7 +38,7 @@ def Index2():
     data = cur.fetchall()
   
     cur.close()
-    return render_template('index.html',registration = data)
+    return render_template('index3.html',registration = data)
 
 @app.route('/add_registration', methods=['POST'])
 def add_registration():
