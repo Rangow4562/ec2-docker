@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="INSPIRO" />
+    <meta name="description" content="Themeforest Template Polo, html template">
+    <link rel="icon" href=https://upload.wikimedia.org/wikipedia/commons/0/05/Ansible_Logo.png sizes="32x32" type="image/png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Document title -->
+    <title>AWS | DATA_TABLE </title>
+    <!-- DataTables css -->
+    <link href='static/plugins/datatables/datatables.min.css' rel='stylesheet' />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <!-- Stylesheets & Fonts -->
+    <link href="static/css/plugins.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Body Inner -->
+    <div class="body-inner">
+        <!-- Header -->
+        <header id="header" data-fullwidth="true">
+            <div class="header-inner">
+                <div class="container">
+                    <!--Logo-->
+                    <div id="logo"> <a href="/"><span ><img class="w-/3"src="https://www.linkpicture.com/q/1_A-D6cuz1WofJOR81z1yWJQ-removebg-preview.png" width="350" alt=""></span><span class="logo-dark"><img class="w-2/6"src="https://www.linkpicture.com/q/1_A-D6cuz1WofJOR81z1yWJQ-removebg-preview.png" width="350" alt=""></span></a> </div>
+                    <!--End: Logo-->
+                    <!-- Search -->
+                    <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
+                        <form class="search-form" action="search-results-page.html" method="get">
+                            <input class="form-control" name="q" type="text" placeholder="Type & Search..." />
+                            <span class="text-muted">Start typing & press "Enter" or "ESC" to close</span>
+                        </form>
+                    </div>
+                    <!-- end: search -->
+                    <!--Header Extras-->
+                    <div class="header-extras">
+                        <ul>
+                            <li>
+                               
+                            </li>
+                            <li>
+                              
+                            </li>
+                        </ul>
+                    </div>
+                    <!--end: Header Extras-->
+                    <!--Navigation Resposnive Trigger-->
+                    <div id="mainMenu-trigger">
+                        <a class="lines-button x"><span class="lines"></span></a>
+                    </div>
+                    <!--end: Navigation Resposnive Trigger-->
+                    <!--Navigation-->
+                    <div id="mainMenu">
+                        <div class="container">
+                            <nav>
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--end: Navigation-->
+                </div>
+            </div>
+        </header>
+        <!-- end: Header -->
+        <!-- Page title -->
+        <section id="page-title">
+            <div class="container">
+                <div class="page-title">
+                    <h1>Data Tables</h1>
+                    <span>View the Information Stored in RDS Database Table.</span>
+                </div>
+          
+                <div class="row">
+                  <div class="col-md-4" style="height: 50px;">
+                    {% with messages = get_flashed_messages()  %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div  class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    {% endfor %}
+              {% endif %}
+              {% endwith %}
+            </div>
+        </section>
+        <!-- end: Page title -->
+        <!-- Page Menu -->
+       
+        <!-- end: Page Menu -->
+        <!-- Page Content -->
+        <section id="page-content" class="no-sidebar">
+            <div class="container">
+                <!-- DataTable -->
+                <div class="row mb-5">
+                    <form action="{{url_for('add_registration')}}" method="POST"></form>
+                    <div class="col-lg-6">
+                     
+                    </div>
+                    <div class="col-lg-6 text-end">
+                       <a href="/Index1"><button type="button" class="btn btn-light"><i class="fas fa-plus-square"></i> Add Record</button></a> 
+                    
+                    </div>
+                </div>
+                <div class="row">
+                    <form action="{{url_for('add_registration')}}" method="POST"></form>
+                    <div class="col-lg-12">
+                        <table id="datatable" class="table table-bordered table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <td >ID</td>
+                                    <td >Firstname</td>
+                                    <td >Lastname</td>
+                                    <td >Age</td>
+                                    <td >Email</td>
+                                    <td >Gender</td>
+                                    <td >Address</td>
+                                    <td >DOB</td>
+                                    <td >Sem</td>
+                                    <td >Rollno</td>
+                                    <td >Phone</td>
+                                    <td >Course</td>
+                                    <td >Action</td>
+                                  </tr>
+                            </thead>
+                            <tbody>
+                                {% for data in registration %}
+                                <tr>
+                        <td>{{data.id}}</td>
+                                  <td >{{data.firstname}}</td>
+                                  <td >{{data.lastname}}</td>
+                                  <td >{{data.age}}</td>
+                                  <td >{{data.email}}</td>
+                                  <td >{{data.gender}}</td>
+                                  <td >{{data.address}}</td>
+                                  <td >{{data.date}}</td>
+                                  <td >{{data.sem}}</td>
+                                  <td >{{data.rolno}}</td>
+                                  <td >{{data.phone}}</td>
+                                  <td >{{data.course}}</td>
+                                  <td width="130">
+                                    <a href="/edit/{{data.id}}" class="btn btn-secondary btn-sm" style="background-color:#00cf002c;color:rgb(5, 199, 53)"><i class="far fa-edit" aria-hidden="true"></i></a>
+                                    <a href="/delete/{{data.id}}" class="btn btn-danger btn-delete btn-sm"  style="background-color:#d1040423;color:rgb(255, 89, 89)"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>
+                                  </td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                         
+                        </table>
+                    </div>
+                </div>
+                <!-- end: DataTable -->
+            </div>
+        </section>
+        <!-- end: Page Content -->
+        <!-- Footer -->
+        <footer id="footer">
+      
+            <div class="copyright-content">
+                <div class="container">
+                    <div class="copyright-text text-center">&copy;©  2021-2022 AWS - Responsive Multi-Purpose HTML5 Template. All Rights Reserved.<a href="https://www.inspiro-media.com" target="_blank" rel="noopener"> CLOUD PROJECT.</a> </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: Footer -->
+    </div>
+    <!-- end: Body Inner -->
+    <!-- Scroll top -->
+    <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+
+
+    <!--Plugins-->
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/plugins.js"></script>
+
+    <!--Template functions-->
+    <script src="static/js/functions.js"></script>
+
+    <!--Datatables plugin files-->
+    <script src='static/plugins/datatables/datatables.min.js'></script>
+    <script>
+        $('#datatable').DataTable({
+            select: true,
+            responsive: true
+        });
+        const btnDelete= document.querySelectorAll('.btn-delete');
+            if(btnDelete) {
+            const btnArray = Array.from(btnDelete);
+            btnArray.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                if(!confirm('Are you sure you want to delete it?')){
+                    e.preventDefault();
+                }
+                });
+            })
+            }
+    </script>
+</body>
+
+</html>
